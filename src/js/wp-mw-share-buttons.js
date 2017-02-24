@@ -7,14 +7,14 @@ import Hatena   from './hatena.js';
 import Pocket   from './pocket.js';
 import Feedly   from './feedly.js';
 
-export default class MwShareButtons {
+export default class WpMwShareButtons {
   constructor(params) {
     $(() => {
-      this.container = $('.mw-share-buttons');
+      this.container = $('.wp-mw-share-buttons');
       this.params = $.extend({
-        title    : encodeURIComponent(this.container.data('mw-share-buttons-title')),
-        url      : this.container.data('mw-share-buttons-url'),
-        post_id  : this.container.data('mw-share-buttons-postid')
+        title    : encodeURIComponent(this.container.data('wp-mw-share-buttons-title')),
+        url      : this.container.data('wp-mw-share-buttons-url'),
+        post_id  : this.container.data('wp-mw-share-buttons-postid')
       }, params);
 
       new Facebook(
