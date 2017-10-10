@@ -3,7 +3,7 @@
  * Plugin Name: MW Share Buttons
  * Plugin URI: https://github.com/inc2734/mw-share-buttons
  * Description: Adds social share buttons.
- * Version: 0.1.1
+ * Version: 0.1.2
  * Author: Takashi Kitajima
  * Author URI: http://2inc.org
  * Created : October 19, 2016
