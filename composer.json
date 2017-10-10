@@ -3,12 +3,12 @@
   "description": "Adds social share buttons.",
   "type": "wordpress-plugin",
   "license": "GPL-2.0+",
-  "version": "0.1.2",
+  "version": "0.2.1",
   "authors": [
     {
       "name": "Takashi Kitajima",
       "email": "inc@2inc.org",
-      "homepage": "http://2inc.org"
+      "homepage": "https://2inc.org"
     }
   ],
   "autoload": {

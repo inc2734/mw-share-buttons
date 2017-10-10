@@ -1,14 +1,14 @@
 <?php
 /**
- * Plugin Name: MW Share Buttons
- * Plugin URI: https://github.com/inc2734/mw-share-buttons
+ * Plugin Name: WP MW Share Buttons
+ * Plugin URI: https://github.com/inc2734/wp-mw-share-buttons
  * Description: Adds social share buttons.
- * Version: 0.1.2
+ * Version: 0.2.1
  * Author: Takashi Kitajima
  * Author URI: http://2inc.org
  * Created : October 19, 2016
- * Modified: November 18, 2016
- * Text Domain: mw-share-buttons
+ * Modified: February 24, 2017
+ * Text Domain: wp-mw-share-buttons
  * Domain Path: /languages/
  * License: GPLv2 or later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -16,7 +16,7 @@
 
 include_once( __DIR__ . '/vendor/autoload.php' );
 
-class MW_Share_Buttons {
+class WP_MW_Share_Buttons {
 
 	public function __construct() {
 		register_uninstall_hook( __FILE__, array( __CLASS__, 'uninstall' ) );
@@ -42,26 +42,26 @@ class MW_Share_Buttons {
 		new \MwShareButtons\Setup\Ajax();
 		new \MwShareButtons\Setup\Shortcode();
 
-		$positions = SCF::get_option_meta( 'mw-share-buttons-option', 'position' );
+		$positions = SCF::get_option_meta( 'wp-mw-share-buttons-option', 'position' );
 		if ( is_array( $positions ) ) {
 			foreach ( $positions as $position ) {
-				$this->display_mw_share_buttons( $position );
+				$this->display_wp_mw_share_buttons( $position );
 			}
 		}
 	}
 
-	public function display_mw_share_buttons( $position ) {
+	public function display_wp_mw_share_buttons( $position ) {
 		add_filter( 'the_content', function( $content ) use ( $position ) {
 			if ( ! is_singular() ) {
 				return $content;
 			}
 
-			$post_types = SCF::get_option_meta( 'mw-share-buttons-option', 'post-type' );
+			$post_types = SCF::get_option_meta( 'wp-mw-share-buttons-option', 'post-type' );
 			if ( ! is_array( $post_types ) || ! in_array( get_post_type(), $post_types ) ) {
 				return $content;
 			}
 
-			$layout = SCF::get_option_meta( 'mw-share-buttons-option', 'layout' );
+			$layout = SCF::get_option_meta( 'wp-mw-share-buttons-option', 'layout' );
 			$share_buttons = sprintf(
 				'[%s type="%s"]',
 				\MwShareButtons\Setup\Config::KEY,
@@ -81,4 +81,4 @@ class MW_Share_Buttons {
 	}
 }
 
-$MW_Share_Buttons = new MW_Share_Buttons();
+$WP_MW_Share_Buttons = new WP_MW_Share_Buttons();

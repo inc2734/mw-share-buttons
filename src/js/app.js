@@ -1,4 +1,4 @@
 'use strict';
 
-import MwShareButtons from './mw-share-buttons.js';
-new MwShareButtons();
+import WpMwShareButtons from './wp-mw-share-buttons.js';
+new WpMwShareButtons();

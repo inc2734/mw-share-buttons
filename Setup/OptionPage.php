@@ -5,10 +5,10 @@ class OptionPage {
 
 	public function __construct() {
 		\SCF::add_options_page(
-			__( 'Share Buttons Settings', 'mw-share-buttons' ),
-			__( 'Share Buttons Settings', 'mw-share-buttons' ),
+			__( 'Share Buttons Settings', 'wp-mw-share-buttons' ),
+			__( 'Share Buttons Settings', 'wp-mw-share-buttons' ),
 			'manage_options',
-			'mw-share-buttons-option'
+			'wp-mw-share-buttons-option'
 		);
 
 		add_filter(
@@ -29,40 +29,40 @@ class OptionPage {
 	 * @return array
 	 */
 	public function register( $settings, $type, $id, $meta_type ) {
-		if ( $id !== 'mw-share-buttons-option' ) {
+		if ( $id !== 'wp-mw-share-buttons-option' ) {
 			return $settings;
 		}
 
-		$Setting = \SCF::add_setting( 'mw-share-buttons', __( 'Layout', 'mw-share-buttons' ) );
+		$Setting = \SCF::add_setting( 'wp-mw-share-buttons', __( 'Layout', 'wp-mw-share-buttons' ) );
 		$Setting->add_group( 'group-layout', false, array(
 			array(
 				'name'  => 'layout',
-				'label' => __( 'Layout', 'mw-share-buttons' ),
+				'label' => __( 'Layout', 'wp-mw-share-buttons' ),
 				'type'  => 'radio',
 				'choices' => array(
-					'balloon'    => __( 'Balloon'   , 'mw-share-buttons' ),
-					'horizontal' => __( 'Horizontal', 'mw-share-buttons' ),
+					'balloon'    => __( 'Balloon'   , 'wp-mw-share-buttons' ),
+					'horizontal' => __( 'Horizontal', 'wp-mw-share-buttons' ),
 				),
 				'default' => 'balloon',
 			),
 		) );
 		$settings[] = $Setting;
 
-		$Setting = \SCF::add_setting( 'mw-share-buttons', __( 'Position', 'mw-share-buttons' ) );
+		$Setting = \SCF::add_setting( 'wp-mw-share-buttons', __( 'Position', 'wp-mw-share-buttons' ) );
 		$Setting->add_group( 'group-position', false, array(
 			array(
 				'name'  => 'position',
-				'label' => __( 'Displays position', 'mw-share-buttons' ),
+				'label' => __( 'Displays position', 'wp-mw-share-buttons' ),
 				'type'  => 'check',
 				'choices' => array(
-					'before_content' => __( 'Before content', 'mw-share-buttons' ),
-					'after_content'  => __( 'After content' , 'mw-share-buttons' ),
+					'before_content' => __( 'Before content', 'wp-mw-share-buttons' ),
+					'after_content'  => __( 'After content' , 'wp-mw-share-buttons' ),
 				),
 			),
 		) );
 		$settings[] = $Setting;
 
-		$Setting = \SCF::add_setting( 'mw-share-buttons', __( 'Post types', 'mw-share-buttons' ) );
+		$Setting = \SCF::add_setting( 'wp-mw-share-buttons', __( 'Post types', 'wp-mw-share-buttons' ) );
 		$post_types = get_post_types( array(
 			'public' => true,
 		), 'objects' );
@@ -74,7 +74,7 @@ class OptionPage {
 		$Setting->add_group( 'group-post-type', false, array(
 			array(
 				'name'  => 'post-type',
-				'label' => __( 'Displays post types', 'mw-share-buttons' ),
+				'label' => __( 'Displays post types', 'wp-mw-share-buttons' ),
 				'type'  => 'check',
 				'choices' => $validated_post_types,
 				'default' => 'post',

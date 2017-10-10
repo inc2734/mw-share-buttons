@@ -10,10 +10,10 @@ export default class MwShareButtonsFeedly extends Button {
   }
 
   count() {
-    const api = mw_share_buttons_feedly.endpoint;
+    const api = wp_mw_share_buttons_feedly.endpoint;
     new ShareCount(api, 'json', {
-        action     : mw_share_buttons_feedly.action,
-        _ajax_nonce: mw_share_buttons_feedly._ajax_nonce
+        action     : wp_mw_share_buttons_feedly.action,
+        _ajax_nonce: wp_mw_share_buttons_feedly._ajax_nonce
       }
     ).request().done((json) => {
       let count = json.subscribers ? json.subscribers : 0;
