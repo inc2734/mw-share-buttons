@@ -18,7 +18,7 @@ class Ajax {
 		check_ajax_referer( $feedly_action );
 
 		$feed_url = rawurlencode( get_bloginfo( 'rss2_url' ) );
-		$response = wp_remote_get( "http://cloud.feedly.com/v3/feeds/feed%2F$feed_url" );
+		$response = wp_remote_get( "https://cloud.feedly.com/v3/feeds/feed%2F$feed_url" );
 		$body     = wp_remote_retrieve_body( $response );
 		wp_send_json( json_decode( $body ) );
 	}

@@ -12,11 +12,11 @@ class Assets {
 
 		wp_enqueue_style(
 			\MwShareButtons\Setup\Config::NAME,
-			$url . '/assets//css/style.min.css'
+			$url . '/assets/css/style.min.css'
 		);
 		wp_enqueue_script(
 			\MwShareButtons\Setup\Config::NAME,
-			$url . '/assets//js/app.min.js',
+			$url . '/assets/js/app.min.js',
 			array( 'jquery' ),
 			null,
 			false
